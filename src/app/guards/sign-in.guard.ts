@@ -2,21 +2,26 @@ import { Injectable, inject } from "@angular/core";
 import {
   ActivatedRouteSnapshot,
   CanActivateFn,
+  Router,
   RouterStateSnapshot,
 } from "@angular/router";
 
 @Injectable()
 export class SignInPermission {
-  constructor() {}
+  constructor(private router: Router) {}
 
   canActivate() {
-    // const isLogged = !!this.cookieService.get("AccessToken");
+    const isLogged = !!localStorage.getItem("AccessToken");
 
-    // if (isLogged) {
-    //   return true;
-    // }
+    console.log(isLogged);
 
-    return true;
+    if (isLogged) {
+      return true;
+    }
+
+    this.router.navigate(["/auth"]);
+
+    return false;
   }
 }
 

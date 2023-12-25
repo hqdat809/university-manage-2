@@ -36,6 +36,8 @@ export class AuthService {
         this.loginSubject.next(data);
         // this.cookieService.set("AccessToken", data.token);
         // this.cookieService.set("RefreshToken", data.refreshToken);
+        localStorage.setItem("AccessToken", data.token);
+        localStorage.setItem("RefreshToken", data.refreshToken);
 
         // navigate()
         this.router.navigate(["/"]);

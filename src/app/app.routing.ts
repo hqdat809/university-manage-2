@@ -25,6 +25,7 @@ const routes: Routes = [
   {
     path: "",
     component: AdminLayoutComponent,
+    canActivate: [SignInGuard],
     children: [
       {
         path: "",
