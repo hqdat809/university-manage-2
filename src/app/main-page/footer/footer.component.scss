@@ -1,0 +1,50 @@
+.Footer {
+  height: 100px;
+  padding: 20px 200px;
+  display: flex;
+  gap: 40px;
+  background-image: url("https://hcmuni.fpt.edu.vn/data/sites/1/skins/default/img/bg-footer.jpg");
+  content-visibility: auto;
+  min-height: 817px;
+  border-top: 2px solid #f26f21;
+  background-color: #f6f5f2;
+  background-position: 80% 100%;
+  background-repeat: no-repeat;
+
+  &__col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-size: 14px;
+
+    &-title {
+      font-weight: 700;
+      font-size: 20px;
+      color: #f26f21;
+    }
+
+    &-contact {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      & .mat-icon {
+        color: #f26f21;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+      }
+
+      span:hover {
+        cursor: pointer;
+        color: #f26f21;
+      }
+    }
+  }
+}

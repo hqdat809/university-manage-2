@@ -1,0 +1,9 @@
+.Home {
+  &__banner {
+    background-image: url("https://hcmuni.fpt.edu.vn/Data/Sites/1/Banner/1banner.jpg");
+    background-size: cover;
+    object-fit: cover;
+    width: calc(100vw - 20px);
+    height: 500px;
+  }
+}

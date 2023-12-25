@@ -90,7 +90,7 @@
             </p>
           </a>
           <mat-menu #menu="matMenu">
-            <button class="dropdown-item" mat-menu-item>
+            <button class="dropdown-item" mat-menu-item (click)="logout()">
               <mat-icon>exit_to_app</mat-icon>
               Sign out
             </button>

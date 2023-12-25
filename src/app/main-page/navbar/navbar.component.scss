@@ -1,0 +1,25 @@
+.Navbar {
+  width: 100%;
+  &__list {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    background-color: #f26f21;
+    padding: 0 250px;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  &__item {
+    padding: 13px 14px 10px 14px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff9151;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { AuthService } from "app/services/auth.service";
 
 @Component({
@@ -12,9 +13,19 @@ export class SignInComponent implements OnInit {
   userInfo$ = this.authService.testData$;
   loadingSignIn = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    const isLogged = localStorage.getItem("AccessToken");
+
+    if (isLogged) {
+      this.router.navigate(["/admin"]);
+    }
+
     this.signInForm = this.fb.group({
       userName: ["", Validators.required],
       password: ["", Validators.required],

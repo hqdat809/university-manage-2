@@ -47,7 +47,7 @@ export class AuthService {
           localStorage.setItem("RefreshToken", data.refreshToken);
 
           // navigate()
-          this.router.navigate(["/"]);
+          this.router.navigate(["/admin"]);
         },
         (error) => {
           console.log("error: ", error);
