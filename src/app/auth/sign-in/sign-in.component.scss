@@ -1,0 +1,56 @@
+.SignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  &__card {
+    border-radius: 18px;
+    width: 35vw;
+    height: 70vh;
+    background-color: white;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #f44336;
+      margin-bottom: 30px;
+    }
+
+    &-submit {
+      width: 100%;
+      background-color: #f44336;
+    }
+
+    &-field {
+      width: 100%;
+
+      .mat-form-field {
+        width: 100%;
+      }
+
+      &.more-action {
+        display: flex;
+        justify-content: space-between;
+        margin: 12px;
+
+        & .forgot {
+          text-align: center;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+}

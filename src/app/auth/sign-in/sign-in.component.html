@@ -1,0 +1,51 @@
+<div class="SignIn">
+  <div class="SignIn__card">
+    <div class="SignIn__card-title">Login</div>
+    <form
+      class="SignIn__form"
+      [formGroup]="signInForm"
+      (ngSubmit)="onSubmit(signInForm.value)"
+    >
+      <div class="SignIn__card-field">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Username"
+            type="text"
+            formControlName="userName"
+          />
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error>
+            <span>Username is required!!</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="SignIn__card-field">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Password"
+            type="text"
+            formControlName="password"
+          />
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error>
+            <span>Password is required!!</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="SignIn__card-field more-action">
+        <mat-checkbox>Remember me</mat-checkbox>
+        <span class="forgot"><a href="">Forgot password?</a></span>
+      </div>
+      <button
+        mat-raised-button
+        type="submit"
+        class="btn btn-danger pull-right SignIn__card-submit"
+      >
+        Login
+      </button>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+</div>
