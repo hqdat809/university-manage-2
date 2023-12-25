@@ -13,8 +13,6 @@ export class SignInPermission {
   canActivate() {
     const isLogged = !!localStorage.getItem("AccessToken");
 
-    console.log(isLogged);
-
     if (isLogged) {
       return true;
     }

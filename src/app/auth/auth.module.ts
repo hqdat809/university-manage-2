@@ -10,6 +10,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatCheckboxModule,
     MatIconModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
   ],
   exports: [],
   declarations: [

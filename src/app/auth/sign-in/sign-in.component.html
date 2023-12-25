@@ -38,12 +38,14 @@
         <mat-checkbox>Remember me</mat-checkbox>
         <span class="forgot"><a href="">Forgot password?</a></span>
       </div>
+
       <button
         mat-raised-button
         type="submit"
         class="btn btn-danger pull-right SignIn__card-submit"
+        [disabled]="loadingSignIn"
       >
-        Login
+        {{ !loadingSignIn ? "Login" : "Loading..." }}
       </button>
       <div class="clearfix"></div>
     </form>

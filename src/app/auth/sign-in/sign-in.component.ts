@@ -10,6 +10,7 @@ import { AuthService } from "app/services/auth.service";
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
   userInfo$ = this.authService.testData$;
+  loadingSignIn = false;
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
@@ -18,6 +19,10 @@ export class SignInComponent implements OnInit {
       userName: ["", Validators.required],
       password: ["", Validators.required],
       rememberMe: false,
+    });
+
+    this.authService.loadingSignIn$.subscribe((data) => {
+      this.loadingSignIn = data;
     });
 
     this.userInfo$.subscribe((data) => console.log("data after login: ", data));

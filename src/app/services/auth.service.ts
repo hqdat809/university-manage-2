@@ -2,15 +2,17 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { ILogin, ISignInResponse } from "app/models/auth.model";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, finalize } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
+  private loadingSubject = new BehaviorSubject<boolean>(false);
   private testDataSubject = new BehaviorSubject<any>(null);
   private loginSubject = new BehaviorSubject<any>(null);
 
   public userInfo$ = this.loginSubject.asObservable();
   public testData$ = this.testDataSubject.asObservable();
+  public loadingSignIn$ = this.loadingSubject.asObservable();
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -31,20 +33,25 @@ export class AuthService {
   }
 
   login(account: ILogin): void {
-    this.http.post("auth/login", account).subscribe(
-      (data: ISignInResponse) => {
-        this.loginSubject.next(data);
-        // this.cookieService.set("AccessToken", data.token);
-        // this.cookieService.set("RefreshToken", data.refreshToken);
-        localStorage.setItem("AccessToken", data.token);
-        localStorage.setItem("RefreshToken", data.refreshToken);
+    this.loadingSubject.next(true);
 
-        // navigate()
-        this.router.navigate(["/"]);
-      },
-      (error) => {
-        console.log("error: ", error);
-      }
-    );
+    this.http
+      .post("auth/login", account)
+      .pipe(finalize(() => this.loadingSubject.next(false)))
+      .subscribe(
+        (data: ISignInResponse) => {
+          this.loginSubject.next(data);
+          // this.cookieService.set("AccessToken", data.token);
+          // this.cookieService.set("RefreshToken", data.refreshToken);
+          localStorage.setItem("AccessToken", data.token);
+          localStorage.setItem("RefreshToken", data.refreshToken);
+
+          // navigate()
+          this.router.navigate(["/"]);
+        },
+        (error) => {
+          console.log("error: ", error);
+        }
+      );
   }
 }
