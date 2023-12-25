@@ -12,6 +12,7 @@ const routes: Routes = [
     redirectTo: "dashboard",
     pathMatch: "full",
   },
+
   {
     path: "auth",
     children: [
