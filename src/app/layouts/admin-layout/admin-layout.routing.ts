@@ -13,7 +13,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "", redirectTo: "dashboard", pathMatch: "full" },
   { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
-  { path: "table-list", component: TableListComponent },
+  { path: "user-manager", component: TableListComponent },
   { path: "typography", component: TypographyComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },

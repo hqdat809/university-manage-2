@@ -1,31 +1,34 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatTableModule } from "@angular/material/table";
 import { ITable } from "./table.constant";
+import { CommonModule } from "@angular/common";
 @Component({
   selector: "app-table",
   standalone: true,
   templateUrl: "./table.component.html",
   styleUrls: ["./table.component.scss"],
-  imports: [MatTableModule],
+  imports: [MatTableModule, CommonModule],
 })
 export class TableComponent implements OnInit {
   @Input() columns: ITable[] = [];
   ELEMENT_DATA = [
-    { position: 1, name: "Hydrogen", weight: 1.0079, symbol: "H" },
-    { position: 2, name: "Helium", weight: 4.0026, symbol: "He" },
-    { position: 3, name: "Lithium", weight: 6.941, symbol: "Li" },
-    { position: 4, name: "Beryllium", weight: 9.0122, symbol: "Be" },
-    { position: 5, name: "Boron", weight: 10.811, symbol: "B" },
-    { position: 6, name: "Carbon", weight: 12.0107, symbol: "C" },
-    { position: 7, name: "Nitrogen", weight: 14.0067, symbol: "N" },
-    { position: 8, name: "Oxygen", weight: 15.9994, symbol: "O" },
-    { position: 9, name: "Fluorine", weight: 18.9984, symbol: "F" },
-    { position: 10, name: "Neon", weight: 20.1797, symbol: "Ne" },
+    { studentId: 1, name: "Hydrogen", class: "H" },
+    { studentId: 2, name: "Helium", class: "He" },
+    { studentId: 3, name: "Lithium", class: "Li" },
+    { studentId: 4, name: "Beryllium", class: "Be" },
+    { studentId: 5, name: "Boron", class: "B" },
+    { studentId: 6, name: "Carbon", class: "C" },
+    { studentId: 7, name: "Nitrogen", class: "N" },
+    { studentId: 8, name: "Oxygen", class: "O" },
+    { studentId: 9, name: "Fluorine", class: "F" },
+    { studentId: 10, name: "Neon", class: "Ne" },
   ];
   dataSource = this.ELEMENT_DATA;
-  displayedColumns: string[] = ["position", "name", "weight", "symbol"];
+  displayedColumns: string[] = ["studentId", "name", "class"];
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.columns);
+  }
 }

@@ -13,7 +13,7 @@ export const studentColumns: ITable[] = [
   {
     label: "Name",
     colName: "name",
-    data: "studentName",
+    data: "name",
   },
   {
     label: "Class",

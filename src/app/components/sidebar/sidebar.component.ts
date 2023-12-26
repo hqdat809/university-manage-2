@@ -21,8 +21,8 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
-    path: "/admin/table-list",
-    title: "Table List",
+    path: "/admin/user-manager",
+    title: "User Manager",
     icon: "content_paste",
     class: "",
   },
