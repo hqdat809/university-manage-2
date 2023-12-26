@@ -34,10 +34,11 @@ export class AuthService {
   }
 
   login(account: ILogin): void {
+    const { rememberMe, ...rest } = account;
     this.loadingSubject.next(true);
 
     this.http
-      .post("auth/login", account)
+      .post("auth/login", rest)
       .pipe(finalize(() => this.loadingSubject.next(false)))
       .subscribe(
         (data: ISignInResponse) => {
@@ -46,6 +47,7 @@ export class AuthService {
           // this.cookieService.set("RefreshToken", data.refreshToken);
           localStorage.setItem("AccessToken", data.accessToken);
           localStorage.setItem("RefreshToken", data.refreshToken);
+          localStorage.setItem("RememberMe", `${rememberMe}`);
 
           // navigate()
           this.router.navigate(["/admin"]);

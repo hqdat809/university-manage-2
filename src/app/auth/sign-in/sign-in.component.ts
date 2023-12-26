@@ -22,8 +22,9 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     const isLogged = localStorage.getItem("AccessToken");
+    const isRemember = localStorage.getItem("RememberMe");
 
-    if (isLogged) {
+    if (isLogged && isRemember === "true") {
       this.router.navigate(["/admin"]);
     }
 
@@ -39,7 +40,6 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(loginInfo: any) {
-    const { rememberMe, ...rest } = loginInfo;
-    this.authService.login(rest);
+    this.authService.login(loginInfo);
   }
 }
