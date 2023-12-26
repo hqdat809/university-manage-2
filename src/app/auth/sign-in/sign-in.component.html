@@ -36,7 +36,9 @@
       </div>
       <div class="SignIn__card-field more-action">
         <mat-checkbox>Remember me</mat-checkbox>
-        <span class="forgot"><a href="">Forgot password?</a></span>
+        <span class="forgot" [routerLink]="['/auth/forgot']"
+          >Forgot password?</span
+        >
       </div>
 
       <button

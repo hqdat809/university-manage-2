@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "app/services/auth.service";
+import { ENotificationType, showNotification } from "utils/notification";
 
 @Component({
   selector: "app-sign-in",
@@ -35,12 +36,9 @@ export class SignInComponent implements OnInit {
     this.authService.loadingSignIn$.subscribe((data) => {
       this.loadingSignIn = data;
     });
-
-    this.userInfo$.subscribe((data) => console.log("data after login: ", data));
   }
 
   onSubmit(loginInfo: any) {
-    console.log("signInForm: ", this.signInForm);
     const { rememberMe, ...rest } = loginInfo;
     this.authService.login(rest);
   }

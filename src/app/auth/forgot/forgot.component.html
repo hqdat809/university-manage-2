@@ -1,1 +1,48 @@
-<p>forgot works!</p>
+<div class="Forgot">
+  <div class="Forgot__card">
+    <div class="Forgot__card-title">Forgot Password</div>
+    <form
+      class="Forgot__form"
+      [formGroup]="forgotForm"
+      (ngSubmit)="onSubmit(forgotForm.value)"
+    >
+      <div class="Forgot__card-field">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Student Id"
+            type="text"
+            formControlName="studentId"
+          />
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error>
+            <span>Student Id is required!!</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="Forgot__card-field">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Email"
+            type="text"
+            formControlName="email"
+          />
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error>
+            <span>Email is required!!</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        type="submit"
+        class="btn btn-danger pull-right Forgot__card-submit"
+        [disabled]="loadingSignIn"
+      >
+        {{ !loadingSignIn ? "Send" : "Loading..." }}
+      </button>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+</div>

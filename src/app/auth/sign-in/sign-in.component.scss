@@ -4,6 +4,14 @@
   justify-content: center;
   height: 100vh;
 
+  & .forgot {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   &__card {
     border-radius: 18px;
     width: 35vw;

@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { ILogin, ISignInResponse } from "app/models/auth.model";
+import { IError, ILogin, ISignInResponse } from "app/models/auth.model";
 import { BehaviorSubject, finalize } from "rxjs";
+import { ENotificationType, showNotification } from "utils/notification";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
@@ -43,14 +44,28 @@ export class AuthService {
           this.loginSubject.next(data);
           // this.cookieService.set("AccessToken", data.token);
           // this.cookieService.set("RefreshToken", data.refreshToken);
-          localStorage.setItem("AccessToken", data.token);
+          localStorage.setItem("AccessToken", data.accessToken);
           localStorage.setItem("RefreshToken", data.refreshToken);
 
           // navigate()
           this.router.navigate(["/admin"]);
         },
-        (error) => {
-          console.log("error: ", error);
+        (error: IError) => {
+          if (error.status === 401) {
+            showNotification(
+              "top",
+              "right",
+              "Username or password is wrong!!",
+              ENotificationType.danger
+            );
+          } else {
+            showNotification(
+              "top",
+              "right",
+              error.statusText,
+              ENotificationType.danger
+            );
+          }
         }
       );
   }

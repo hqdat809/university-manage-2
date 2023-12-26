@@ -7,6 +7,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
+import { TableComponent } from "./table/table.component";
 @NgModule({
   imports: [CommonModule, RouterModule, MatMenuModule, MatIconModule],
   declarations: [FooterComponent, NavbarComponent, SidebarComponent],
