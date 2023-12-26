@@ -24,7 +24,7 @@ export class SignInComponent implements OnInit {
     const isLogged = localStorage.getItem("AccessToken");
     const isRemember = localStorage.getItem("RememberMe");
 
-    if (isLogged && isRemember === "true") {
+    if (isLogged) {
       this.router.navigate(["/admin"]);
     }
 
